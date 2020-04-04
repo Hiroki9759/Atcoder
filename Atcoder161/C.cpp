@@ -7,5 +7,12 @@ struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main()
 {
-    return 0;
+    long long int N=0,K=1,a=0,b=0,ans;
+    scanf("%lld %lld",&N,&K);
+    a = N%K;
+    b =abs(a-K);
+    ans=min(a,b);
+    printf("%lld\n",ans);
+
+
 }
