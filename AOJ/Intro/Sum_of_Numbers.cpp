@@ -6,11 +6,18 @@ using namespace std;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main()
-{   
-    string s,p;
-    cin >> s >> p;
-    s+=s;
-    if(s.find(p)!=-1)printf("Yes\n");
-    else printf("No\n");
-    return 0;
+{
+    int sum=0;
+    char ch;
+    while(1){
+
+        while((ch = getchar())!='\n'){
+            sum +=ch - '0';
+        }
+        if(sum == 0)break;
+        else{
+            printf("%d\n",sum);
+            sum=0;
+        }
+    }
 }

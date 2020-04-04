@@ -6,11 +6,11 @@ using namespace std;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main()
-{   
-    string s,p;
-    cin >> s >> p;
-    s+=s;
-    if(s.find(p)!=-1)printf("Yes\n");
-    else printf("No\n");
-    return 0;
+{
+    double d,dx,dy,x1,x2,y1,y2;
+    scanf("%lf%lf%lf%lf",&x1,&y1,&x2,&y2);
+    dx = abs(float(x1)-float(x2));
+    dy = abs(float(y1)-float(y2));
+    d = sqrt(dx*dx+dy*dy);
+    printf("%lf\n",d);
 }

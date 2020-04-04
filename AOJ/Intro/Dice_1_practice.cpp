@@ -6,11 +6,6 @@ using namespace std;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main()
-{   
-    string s,p;
-    cin >> s >> p;
-    s+=s;
-    if(s.find(p)!=-1)printf("Yes\n");
-    else printf("No\n");
+{
     return 0;
 }
