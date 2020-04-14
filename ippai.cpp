@@ -3,7 +3,7 @@ using namespace std;
 using ll = long long;
 #define REP(i,n) for(int i=0; i<(n); i++)
 #define REP2(i,x,n) for(int i=x; i<(n); i++)
-#define REP2(i,x,n) for(int i=x; i>(n); i--)
+#define REP3(i,x,n) for(int i=x; i>(n); i--)
 #define ALL(n) begin(n),end(n)
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
@@ -130,3 +130,18 @@ void shellSort(int N,int *A){
     cout << cnt << endl;
 }
 
+//二分累乗法を使ったmodpow
+const ll MOD = 1000000007;
+const ll MOD_2 = 998244353;
+ll modpow (ll radix,ll index){
+    if(index == 0)return 1;
+    if(index == 1)return radix%MOD;
+    ll c;
+    c = modpow(radix,index/2);
+    c = c * c % MOD;
+    if(index % 2){
+        return c * radix % MOD;
+    }else{
+        return c;
+    }
+}
