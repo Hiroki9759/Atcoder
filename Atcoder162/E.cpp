@@ -12,15 +12,15 @@ ll p = 1000000007;
 
 ll modpow (ll radix,ll index){
     if(index == 0)return 1;
-    if(index == 1)return radix%p;
+    if(index == 1)return radix % p;
     ll c;
     c = modpow(radix,index/2);
     c = c * c % p;
     if(index % 2){
         return c * radix % p;
-    }else{
-        return c;
     }
+    return c;
+    
 }
 // m[i]はk=iのときの最大公約数の総和
 ll N,K,x,y,z,m[100001],ans[100001];
@@ -28,6 +28,7 @@ int main(){
     scanf("%lld%lld",&N,&K);
     m[1] = 1;
     for(ll i = 2; i<=K;i++){
+        z = 0;
         for(ll j = 2;j*j <= i;j++){
             //iがjの倍数の時(被り対策)
             if(i%j==0){
