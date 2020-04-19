@@ -145,3 +145,14 @@ ll modpow (ll radix,ll index){
         return c;
     }
 }
+
+//桁をvectorに入れる
+vector<ll> GetDigit(ll num){
+    vector<ll>kakuketa;
+    while(num!=0){
+        ll keta =num%10;
+        kakuketa.push_back(keta);
+        num /= 10;  
+    }
+    return kakuketa;
+}
