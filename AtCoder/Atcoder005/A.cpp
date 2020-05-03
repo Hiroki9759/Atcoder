@@ -4,20 +4,21 @@ using ll = long long int;
 #define REP(i,n) for(int i=0; i<(n); i++)
 #define REP2(i,x,n) for(int i=x; i<(n); i++)
 #define REP3(i,x,n) for(int i=x; i>(n); i--)
+#define zero_pad(num) setfill('0') << std::right << setw(num)
+#define space_pad(num) setfill(' ') << std::right << setw(num)
 #define ALL(n) begin(n),end(n)
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
-    ll N,M;
-    ll a,sum=0,b;
-    scanf("%lld%lld",&N,&M);
-    for(ll i=0;i<M;i++){
-        scanf("%lld",&a);
-        sum += a;
+    ll N;
+    cin >> N;
+    bool tf = false;
+    if(N%3==0) tf = true;
+    while(N>0){
+        if(N%10==3)tf=true;
+        N/=10;
     }
-    b= -1;
-    if(sum > N) printf("-1\n");
-    else printf("%lld\n",N-sum);
+    if(tf)cout << "YES" << endl;
+    else cout << "NO" << endl;
     return 0;
-
 }

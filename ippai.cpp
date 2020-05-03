@@ -156,3 +156,6 @@ vector<ll> GetDigit(ll num){
     }
     return kakuketa;
 }
+
+//固定小数点表記を操る
+//cout << std::fixed << std::serprecision(15) << y出力 << endl;
