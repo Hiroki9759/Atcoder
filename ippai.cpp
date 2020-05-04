@@ -159,3 +159,73 @@ vector<ll> GetDigit(ll num){
 
 //固定小数点表記を操る
 //cout << std::fixed << std::serprecision(15) << y出力 << endl;
+
+//bitDP を用いた巡回セールスマン問題
+/*・1≤n≤201≤n≤20
+・0≤dist[i][j]≤10000≤dist[i][j]≤1000
+・dist[i][i]=0dist[i][i]=0
+・dist[i][j]=dist[j][i]dist[i][j]=dist[j][i]
+#include <iostream>
+#include <bitset>
+using namespace std;
+
+const int INF = 100000000; // 十分大きな値
+
+// 入力 
+int N;
+int dist[21][21];
+
+// メモ再帰 //
+int dp[(1<<20) + 1][21]; // dpテーブルは余裕をもったサイズにする
+int rec(int bit, int v)
+{
+    // すでに探索済みだったらリターン
+    if (dp[bit][v] != -1) return dp[bit][v];
+
+    // 初期値
+    if (bit == (1<<v)) {
+        return dp[bit][v] = 0;
+    }
+
+    // 答えを格納する変数
+    int res = INF;
+
+    // bit の v を除いたもの
+    int prev_bit = bit & ~(1<<v);
+
+    // v の手前のノードとして u を全探索
+    for (int u = 0; u < N; ++u) {
+        if (!(prev_bit & (1<<u))) continue; // u が prev_bit になかったらダメ
+
+        // 再帰的に探索
+        if (res > rec(prev_bit, u) + dist[u][v]) {
+            res = rec(prev_bit, u) + dist[u][v];
+        }
+    }
+
+    return dp[bit][v] = res; // メモしながらリターン
+}
+
+int main()
+{
+    // 入力
+    cin >> N;
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            cin >> dist[i][j];
+        }
+    }
+
+    // テーブルを全部 -1 にしておく (-1 でなかったところは探索済)
+    for (int bit = 0; bit < (1<<N); ++bit) for (int v = 0; v < N; ++v) dp[bit][v] = -1;
+
+    // 探索
+    int res = INF;
+    for (int v = 0; v < N; ++v) {
+        if (res > rec((1<<N)-1, v)) {
+            res = rec((1<<N)-1, v);
+        }
+    }
+    cout << res << endl;
+}
+*/
