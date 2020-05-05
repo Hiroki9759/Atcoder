@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long int
+#define ll = long long int
 #define REP(i,n) for(int i=0; i<(n); i++)
 #define REP2(i,x,n) for(int i=x; i<(n); i++)
 #define REP3(i,x,n) for(int i=x; i>(n); i--)
@@ -8,40 +8,35 @@ using namespace std;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
-    stack<int> data;
-    
-    int x;
-    int y;
-    char s[100];
 
-    while( scanf("%s", s) != EOF ){
-        if ( s[0] == '+' ){
-            y = data.top();
-            data.pop();
-            x = data.top();
-            data.pop();
-            data.push(x+y);
-        } else if ( s[0] == '-' ){
-            y = data.top();
-            data.pop();
-            x = data.top();
-            data.pop();
-            data.push(x-y);
-
-        } else if ( s[0] == '*' ){
-            y = data.top();
-            data.pop();
-            x = data.top();
-            data.pop();
-            data.push(x*y);
-
-        } else {
-            data.push(atoi(s));
+    stack<int>S1;
+    stack<pair<int,int> >S2;
+    char ch;
+    int sum = 0;
+    for(int i = 0;cin>>ch;i++){
+        if(ch == '\\')S1.push(i);
+        else if(ch == '/' && S1.size()>0){
+            int j = S1.top();
+            S1.pop();
+            sum += i- j;
+            int a= i - j;
+            while(S2.size()>0&&S2.top().first>j){
+                a += S2.top().second; S2.pop();
+            }
+            S2.push(make_pair(j,a));
         }
-  }
-  printf("%d\n",data.top());
-
-  return 0;
+    }
+    vector<int> ans;
+    while(S2.size()>0){
+        ans.push_back(S2.top().second);S2.pop();
+    }
+    reverse(ans.begin(),ans.end());
+    cout << sum << endl;
+    cout << ans.size();
+    REP(i,ans.size()){
+        cout << " ";
+        cout << ans[i];
+    }
+    cout << endl;
+    return 0;
 }
-
-   
