@@ -21,7 +21,7 @@
 		"body": [
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
-			"#define ll = long long int",
+			"typedef long long ll;",
 			"#define REP(i,n) for(int i=0; i<(n); i++)",
 			"#define REP2(i,x,n) for(int i=x; i<(n); i++)",
 			"#define REP3(i,x,n) for(int i=x; i>(n); i--)",
