@@ -1,0 +1,9 @@
+{
+	"Print to console": {
+		"prefix": "co",
+		"body": [
+			"cout <<  << endl;",
+			],
+		"description": "template"
+	}
+}

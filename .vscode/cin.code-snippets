@@ -1,0 +1,10 @@
+{
+	"Print to console": {
+		"prefix": "ci",
+		"body": [
+			"cin >> ;",
+			],
+		"description": "template"
+	}
+	
+}
