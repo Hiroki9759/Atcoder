@@ -229,3 +229,7 @@ int main()
     cout << res << endl;
 }
 */
+
+
+//priority_queueの逆順
+//priority_queue<int, vector<int>,greater<int> > q;
