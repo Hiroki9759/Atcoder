@@ -10,11 +10,22 @@ using ll = long long int;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
-    string s,ans="YES";cin>>s;
-    for(int i=0;i<s.size();i++){
-        if(i+1<s.size()&&s.substr(i,2)=="ch"){i++;continue;}
-        if(s[i]=='o'||s[i]=='k'||s[i]=='u')continue;
-        ans = "NO";break;
+    ll n;
+    ll Darkness[1000001]={0};
+    cin >> n;
+    vector<pair<ll,ll>> AB;
+    ll a,b;
+    REP(i,n){
+        cin >> a >> b;
+        Darkness[a]++;Darkness[b+1]--;
     }
-    cout<<ans<<endl;
+    ll ans = Darkness[0];
+    for(ll i = 1;i<=1000000;i++){
+        Darkness[i]+=Darkness[i-1];
+        ans = max(ans,Darkness[i]);
+    }
+    
+    cout << ans << endl;
+    return 0;
+
 }
