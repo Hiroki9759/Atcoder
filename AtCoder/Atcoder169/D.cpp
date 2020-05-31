@@ -10,5 +10,8 @@ using ll = long long int;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
+    ll a,b;
+    cin>> a>>b;
+    cout << a*b << endl;
     return 0;
 }
