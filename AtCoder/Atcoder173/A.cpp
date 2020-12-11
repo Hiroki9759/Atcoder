@@ -10,5 +10,8 @@ using ll = long long int;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
+    long long N;
+    scanf("%lld",&N);
+    printf("%lld",(1000-N%1000)%1000);
     return 0;
 }

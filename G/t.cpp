@@ -9,27 +9,16 @@ using ll = long long int;
 #define ALL(n) begin(n),end(n)
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
-int main(){
-    long long N,A=0,W=0,T=0,R=0;
-    string s;
-    cin >> N;
-    for (long long i = 0; i < N; i++)
-    {
-        cin >> s;
-        if(s=="AC"){
-            A++;
-        }else if(s=="WA"){
-            W++;
-        }else if(s=="TLE"){
-            T++;
-        }else{
-            R++;
-        }
-    }
-    cout << "AC x " << A << endl;
-    cout << "WA x " << W << endl;
-    cout << "TLE x " << T << endl;
-    cout << "RE x " << R << endl;
 
+int f(int x){
+    if(x<=1){return 0;}
+    else if(x%2==0){
+        return f(x+1)+x;
+    }else {
+        return f(x-3)-x;
+    }
+}
+int main(){
     return 0;
+    cout << f(10)<<endl;
 }

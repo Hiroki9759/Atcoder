@@ -10,20 +10,38 @@ using ll = long long int;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
-    long long A, B, C;
-    vector<long long>D;
-    cin >> A >> B >> C;
-    
-    D.push_back(A);
-    D.push_back(B);
-    D.push_back(C);
-    sort(ALL(D));
-    for(int i=2;i>=0;i--){
-        if(D[i]==A){cout << "1" << endl;}
-        if(D[i]==B){cout << "2" << endl;}
-        if(D[i]==C){cout << "3" << endl;}
-        
+    vector<pair<long long,long long>>D(3);
+    for (long long  i = 0; i < 3; i++)
+    {
+        long long temp;
+        cin>>temp;
+        D[i]={temp,i};
     }
-    
+    sort(D.rbegin(),D.rend());
+    vector<long long> ans(3);
+    for (long long i = 0; i < 3; i++)
+    {
+        ans[D[i].second] = i+1;
+    }
+    for(int i=0;i<3;i++)
+    {
+        cout << ans[i] << endl;
+    }
+
     return 0;
 }
+
+// int main() {
+//   vector<pair<ll,ll>> a(3);
+//   for(ll i=0;i<3;i++) {
+//     ll tmp;
+//     cin >> tmp;
+//     a[i]={tmp,i};
+//   }
+//   sort(a.rbegin(),a.rend());
+//   vector<ll> ans(3);
+//   for(ll i=0;i<3;i++) {
+//     ans[a[i].second]=i+1;
+//   }
+//   for(ll i=0;i<3;i++) cout << ans[i] << endl;
+// }

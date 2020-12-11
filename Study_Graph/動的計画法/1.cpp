@@ -9,27 +9,22 @@ using ll = long long int;
 #define ALL(n) begin(n),end(n)
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
+int dp[50];
+int fib(int n){
+    if(n == 0|| n == 1){return 1;}
+    
+    return fib(n-2)+fib(n-1);
+}
 int main(){
-    long long N,A=0,W=0,T=0,R=0;
-    string s;
-    cin >> N;
-    for (long long i = 0; i < N; i++)
+    int n;
+    cin >> n;
+    int F[n];
+    F[0]=F[1]=1;
+    for (int i = 0; i < n; i++)
     {
-        cin >> s;
-        if(s=="AC"){
-            A++;
-        }else if(s=="WA"){
-            W++;
-        }else if(s=="TLE"){
-            T++;
-        }else{
-            R++;
-        }
+        F[i]=F[i-1]+F[i-2];
     }
-    cout << "AC x " << A << endl;
-    cout << "WA x " << W << endl;
-    cout << "TLE x " << T << endl;
-    cout << "RE x " << R << endl;
-
+    
+    cout << F[n] << endl;
     return 0;
 }

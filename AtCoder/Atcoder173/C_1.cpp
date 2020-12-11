@@ -10,26 +10,20 @@ using ll = long long int;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
-    long long N,A=0,W=0,T=0,R=0;
-    string s;
-    cin >> N;
-    for (long long i = 0; i < N; i++)
-    {
-        cin >> s;
-        if(s=="AC"){
-            A++;
-        }else if(s=="WA"){
-            W++;
-        }else if(s=="TLE"){
-            T++;
-        }else{
-            R++;
+    int h,w,k;
+    cin >> h >> w >> k;
+    vector<string> s(h);
+    int ans=0;
+    REP(i,h)cin>>s[i];
+    REP(is,1<<h)REP(js,1<<w){
+        int cnt = 0;
+        REP(i,h)REP(j,w){
+            if(is>>i&1)continue;
+            if(js>>j&1)continue;
+            if(s[i][j]=='#')cnt++;
         }
+        if(cnt==k)ans++;
     }
-    cout << "AC x " << A << endl;
-    cout << "WA x " << W << endl;
-    cout << "TLE x " << T << endl;
-    cout << "RE x " << R << endl;
-
+    cout << ans << endl;
     return 0;
 }

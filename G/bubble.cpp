@@ -10,26 +10,16 @@ using ll = long long int;
 struct cww{cww(){ios::sync_with_stdio(false);cin.tie(0);}}star;
 const long long INF = numeric_limits<long long>::max();
 int main(){
-    long long N,A=0,W=0,T=0,R=0;
-    string s;
-    cin >> N;
-    for (long long i = 0; i < N; i++)
-    {
-        cin >> s;
-        if(s=="AC"){
-            A++;
-        }else if(s=="WA"){
-            W++;
-        }else if(s=="TLE"){
-            T++;
-        }else{
-            R++;
-        }
-    }
-    cout << "AC x " << A << endl;
-    cout << "WA x " << W << endl;
-    cout << "TLE x " << T << endl;
-    cout << "RE x " << R << endl;
+    string dat;
+	ll i,j,work;
+    cin >> dat;
+    ll n = dat.length();
+	for (i=0;i<n-2;i++) 
+		for (j=0;j<n-i-2;j++) 
+			if (dat[j]>dat[j+2]) { 
+				swap(dat[j],dat[j+2]);
+			}
 
-    return 0;
+    cout << dat <<endl;
+
 }
